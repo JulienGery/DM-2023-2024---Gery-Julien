@@ -59,13 +59,13 @@ let liste_premier n =
             |false -> _liste_premier l (t + 1) in
     _liste_premier [] 2
 
-(* bond est la limite de jusque où on veux tester.
+(* limite est la limite de jusque où on veux tester.
    hamming 100 10^9 sont les nombres de hamming inferieur ou égaux a 10^9 *)
-let hamming n bond =
+let hamming n limite =
     let premiers = liste_premier n in
 
     (* fonction oxilaire qui compte le nombre de nombre de hamming. branch désigne la brache actuelle. _n est le nombre actuelle de hamming *)
-    let rec _hamming _n branch = match _n <= bond with
+    let rec _hamming _n branch = match _n <= limite with
         |false -> 0
         |true -> let rec ox l = match l with (*fonction auxilaire qui parcour l'arbre des possibilité en fonction de la branche *)
             |[] -> 0
